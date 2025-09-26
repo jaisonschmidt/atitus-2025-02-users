@@ -4,6 +4,10 @@ const divDados = document.querySelector("#dados");
 
 const retorno = fetch(API_USER_URL);
 
+function getUserData(id) {
+    console.log("Dados do usuario", id);
+}
+
 retorno
     .then(function(response) {
         return response.json();
@@ -13,7 +17,7 @@ retorno
         let html = "";
         
         data.forEach(usuario => {
-            html += usuario.name + " - " + usuario.email + "<br />";
+            html += "<a href='#'>" + usuario.name + " - " + usuario.email + "</a><br>";
         });
 
         divDados.innerHTML = html;
