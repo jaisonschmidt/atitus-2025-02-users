@@ -17,7 +17,7 @@ retorno
         let html = "";
         
         data.forEach(usuario => {
-            html += "<a href='#'>" + usuario.name + " - " + usuario.email + "</a><br>";
+            html += "<a href='#' onclick='getUserData(" + usuario.id + ")'>" + usuario.name + " - " + usuario.email + "</a><br>";
         });
 
         divDados.innerHTML = html;
