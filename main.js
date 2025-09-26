@@ -12,8 +12,8 @@ retorno
         console.log(data);
         let html = "";
         
-        data.forEach(elemento => {
-            html += elemento.name + "<br />";
+        data.forEach(usuario => {
+            html += usuario.name + " - " + usuario.email + "<br />";
         });
 
         divDados.innerHTML = html;
