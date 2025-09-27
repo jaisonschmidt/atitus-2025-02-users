@@ -6,21 +6,26 @@ const divDadosUsuario = document.querySelector("#dadosUsuario");
 const retorno = fetch(API_USER_URL);
 
 async function getUserData(id) {
-    console.log("Dados do usuario", id);
-    // chamar a url https://jsonplaceholder.typicode.com/users/ID
-    // receber os dados
-    // exibir os dados na tela
-    const response = await fetch("https://jsonplaceholder.typicode.com/users/"+id);
-    const dadosUsuario = await response.json();
+    try {
+        console.log("Dados do usuario", id);
+        // chamar a url https://jsonplaceholder.typicode.com/users/ID
+        // receber os dados
+        // exibir os dados na tela
+        const response = await fetch("https://jsonplaceholder.typicode.com/users/"+id);
+        const dadosUsuario = await response.json();
 
-    let html = "";
+        let html = "";
 
-    html += "<h1>Detalhes do usuário</h1>";
-    html += "Telefone: " + dadosUsuario.phone + "<br />";
-    html += "Website: " + dadosUsuario.website + "<br />";
-    html += "Endereço: " + dadosUsuario.address.street;
+        html += "<h1>Detalhes do usuário</h1>";
+        html += "Telefone: " + dadosUsuario.phone + "<br />";
+        html += "Website: " + dadosUsuario.website + "<br />";
+        html += "Endereço: " + dadosUsuario.address.street;
 
-    divDadosUsuario.innerHTML = html;
+        divDadosUsuario.innerHTML = html;
+    } catch (error) {
+        alert("Falha ao recuperar informações");
+        divDadosUsuario.innerHTML = "Erro";
+    }
 }
 
 retorno
