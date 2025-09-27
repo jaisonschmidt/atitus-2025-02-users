@@ -21,7 +21,6 @@ async function getUserData(id) {
     html += "Endereço: " + dadosUsuario.address.street;
 
     divDadosUsuario.innerHTML = html;
-
 }
 
 retorno
