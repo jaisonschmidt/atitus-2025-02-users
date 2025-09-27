@@ -1,6 +1,7 @@
 const API_USER_URL = "https://jsonplaceholder.typicode.com/users";
 
 const divDados = document.querySelector("#dados");
+const divDadosUsuario = document.querySelector("#dadosUsuario");
 
 const retorno = fetch(API_USER_URL);
 
@@ -12,7 +13,16 @@ async function getUserData(id) {
     const response = await fetch("https://jsonplaceholder.typicode.com/users/"+id);
     const dadosUsuario = await response.json();
 
-    console.log(dadosUsuario);
+    let html = "";
+
+    html += "<h1>Detalhes do usuário</h1>";
+    html += "Telefone: " + dadosUsuario.phone + "<br />";
+    html += "Website: " + dadosUsuario.website + "<br />";
+    html += "Endereço: " + dadosUsuario.address.street;
+
+
+    divDadosUsuario.innerHTML = html;
+
 }
 
 retorno
